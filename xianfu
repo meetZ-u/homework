@@ -1,0 +1,50 @@
+template <typename T>
+class LimitetValue
+{
+private;
+  T current_value;
+  T min_value;
+  T max_value;
+public;
+ void limite ()//限制范围
+ {
+   if(current_value < min_value)
+   {
+    current_value = min_value;
+   }
+   if(current_value > max_value)
+   {
+    current_value = max_value;
+   }
+ }    
+//构造函数初始化列表
+  LimitetValue ( T c_value, T i_value, T a_value ) : current_value(c_value),max_value(a_value),min_value(i_value)
+  {
+    limite();
+  }
+//赋值重载
+  //赋值重载
+  LimitetValue& operator = ( T a)
+  {
+    this -> current_value = a;
+    limite();
+    return *this;
+  }
+  LimitetValue& operator +=(T b)
+  {
+    this ->current_value += b;
+    limite();
+    return *this;
+  }
+  T val()
+  {
+    return current_value;
+  }
+
+
+
+
+
+
+
+};
